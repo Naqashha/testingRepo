@@ -1,13 +1,17 @@
-image: atlassian/default-image:3
+name: Automated API tests using Postman CLI
 
-pipelines:
-  default:
-    - step:
-        name: Run automated API tests using Postman CLI
-        script:
-          # Install Postman CLI
-          - curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-          # Login using your API Key
-          - postman login --with-api-key $POSTMAN_API_KEY
-          # Run your collection using Postman CLI
-          - postman collection run "24559201-a4697822-8cea-4f27-a49b-12573e833348"
+on: push
+
+jobs:
+  automated-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "24559201-a4697822-8cea-4f27-a49b-12573e833348"
