@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   automated-api-tests:
     runs-on: ubuntu-latest
@@ -20,5 +19,5 @@ jobs:
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
       - name: Run API tests
         run: |
-          postman collection run "24559201-a4697822-8cea-4f27-a49b-12573e833348"
+          postman collection run "16603382-15a12b0a-a1a8-4c01-81f1-7c6649c67d26" -e "16603382-613f733f-7ab1-4de3-9520-002c540c677e"
           
