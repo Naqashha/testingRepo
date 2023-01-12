@@ -21,12 +21,4 @@ jobs:
       - name: Run API tests
         run: |
           postman collection run "24559201-a4697822-8cea-4f27-a49b-12573e833348"
-          - name: Merge Pull Request
-            if: success()
-             uses: peter-evans/create-pull-request@v3
-              with:
-              token: ${{ secrets.GITHUB_TOKEN }}
-             commit-message: 'Automated merge'
-              title: 'Merge request'
-           head: ${{github.head_ref}}
-          base: main
+          
