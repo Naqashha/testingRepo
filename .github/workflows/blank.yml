@@ -1,5 +1,5 @@
 curl -X POST \
-  -H "Authorization: Bearer ${{ secrets.pat}}" \
+  -H "Authorization: Bearer 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" \
   -H "Accept: application/vnd.github.everest-preview+json" \
   -d '{"event_type": "run-tests"}' \
   https://api.github.com/repos/ezra-ai/Playwright-TS/dispatches
