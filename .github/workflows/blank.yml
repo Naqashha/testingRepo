@@ -1,21 +1,9 @@
-name: Automated API tests using Postman CLI
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+name: workflow_02
+on: [repository_dispatch]
 jobs:
-  build:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Test
-        run: |
-          curl -X POST  https://api.github.com/repos/ezra-ai/Playwright-TS/dispatches \
-           -H "Authorization: Bearer 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" \
-           -H "Accept: application/vnd.github.everest-preview+json" \
-            -d '{"event_type": "run-tests"}' \
- 
+      - run: echo "Triggering Wokflow 2"
+      - name: Checkout
+        uses: actions/checkout@v2
