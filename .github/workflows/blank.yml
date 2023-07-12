@@ -15,7 +15,7 @@ jobs:
       - name: Test
         run: |
           curl -X POST  https://api.github.com/repos/ezra-ai/Playwright-TS/dispatches \
-           -H "Authorization: Bearer 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" \
+           -H "Authorization: Bearer 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" \
            -H "Accept: application/vnd.github.everest-preview+json" \
             -d '{"event_type": "run-tests"}' \
  
